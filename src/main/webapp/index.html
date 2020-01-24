@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Websocket-test</h1>
+        <a onclick="send();">skicka mess</a>
+        <script>
+            var url = "ws://localhost:8080/WebSocketServer/chatserver";
+            var ws = new WebSocket(url);
+       
+            function send(){
+                ws.send("Daniel");
+            }
+
+            ws.onmessage = function (message) {
+                var data = JSON.parse(message.data);
+                console.log(data);
+
+            }
+        </script>
+    </body>
+</html>
